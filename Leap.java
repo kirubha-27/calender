@@ -4,8 +4,8 @@ public class Leap {
         year = y;
     }
     public boolean isLeap(){
-        if((year % 400 == 0)
-                || ((year % 4 == 0) && (year % 100 != 0))){
+        if(((year+1) % 400 == 0)
+                || (((year+1) % 4 == 0) && ((year+1) % 100 != 0))){
             return true;
         }else {
             return false;
@@ -28,13 +28,14 @@ public class Leap {
             return 30;
         } else if (monthNumber%2!=0&&monthNumber!=1&&monthNumber>6) {
             return 31;
-        }else {
+        }else if(monthNumber==1) {
             if(isLeap()){
                 return 29;
             }else {
                 return 28;
             }
         }
+        return monthNumber;
     }
     public String getMonth(int i){
         String[] month = {"January","February","March","April","May","June","July","August","September","October",
